@@ -32,10 +32,8 @@ class _MySettingsState extends State<MySettings> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        padding: const EdgeInsets.all(16.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             'Language Settings:',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -97,6 +95,9 @@ class _MySettingsState extends State<MySettings> {
                 groupValue: rightToLeftEditingSupport,
                 onChanged: (bool? value) {
                   setState(() {
+
+
+                    
                     rightToLeftEditingSupport = value!;
                   });
                 },
@@ -160,58 +161,8 @@ class _MySettingsState extends State<MySettings> {
             ],
           ),
           SizedBox(height: 40),
-          Text(
-            'Default Text Style:',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 10),
-          Row(
-            children: [
-              DropdownButton<String>(
-                value: selectedFont,
-                onChanged: (String? newValue) {
-                  setState(() {
-                    selectedFont = newValue!;
-                  });
-                },
-                items: ['Sans Serif', 'Serif', 'Monospace']
-                    .map<DropdownMenuItem<String>>(
-                      (String value) => DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      ),
-                    )
-                    .toList(),
-              ),
-              Slider(
-                value: selectedFontSize,
-                min: 10.0,
-                max: 30.0,
-                onChanged: (double value) {
-                  setState(() {
-                    selectedFontSize = value;
-                  });
-                },
-              ),
-              RaisedButton(
-                onPressed: () {
-                  // Implement logic to remove formatting
-                },
-                child: Text('Remove Formatting'),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Text(
-            'This is what your body text will look like.',
-            style: TextStyle(
-              fontFamily: selectedFont,
-              fontSize: selectedFontSize,
-              color: selectedTextColor,
-            ),
-          ),
-        ],
-      ),
-    );
+        ]));
   }
 }
+
+
